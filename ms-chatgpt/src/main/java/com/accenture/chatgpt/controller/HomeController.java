@@ -13,15 +13,21 @@ import reactor.core.publisher.Flux;
 @RestController
 public class HomeController {
 
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
     @GetMapping("/message")
     public Flux<Message> getAll() {
         Flux<Message> lista = Flux.just(new Message("Hola")
                 , new Message("Hola 2")).delaySequence(Duration.ofSeconds(3));
         return lista;
     }
+
     @GetMapping(path = "/numeros", produces = "text/event-stream")
-    public Flux<Integer> all () {
-        Flux<Integer> flux = Flux.range(1,30)
+    public Flux<Integer> all() {
+        Flux<Integer> flux = Flux.range(1, 30)
                 .delayElements(Duration.ofSeconds(1));
 
         flux.subscribe(System.out::println); // suscriptor 1
