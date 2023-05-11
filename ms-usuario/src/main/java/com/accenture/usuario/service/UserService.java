@@ -27,12 +27,12 @@ public class UserService {
         User userAdmin = new User();
         userAdmin.setId(1);
         userAdmin.setUsername("admin");
-        userAdmin.setPassword("654321");
+        userAdmin.setPassword("$2a$10$fn5BB.BgRINLPzP/RiD2K.6FtWwLxXqks0qGwwE13VwOZkmhiEKRq");
         userAdmin.setRole(roleAdmin);
         User userUser = new User();
         userUser.setId(2);
         userUser.setUsername("user");
-        userUser.setPassword("654321");
+        userUser.setPassword("$2a$10$fn5BB.BgRINLPzP/RiD2K.6FtWwLxXqks0qGwwE13VwOZkmhiEKRq");
         userUser.setRole(roleUser);
         this.users.add(userAdmin);
         this.users.add(userUser);
