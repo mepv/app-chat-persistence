@@ -6,11 +6,13 @@ import java.time.Duration;
 import com.accenture.chatgpt.model.Message;
 import com.accenture.chatgpt.model.Subscriber;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import reactor.core.publisher.Flux;
 
 @RestController
+@RequestMapping("chatgpt")
 public class HomeController {
 
     @GetMapping("/test")

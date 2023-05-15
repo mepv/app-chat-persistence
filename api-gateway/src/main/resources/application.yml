@@ -1,0 +1,49 @@
+server:
+  port: 9090
+logging:
+  level:
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: TRACE
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        security: DEBUG
+        cloud:
+          gateway: TRACE
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+#    registerWithEureka: false
+
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9090/oauth2/jwks
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      httpclient:
+        wiretap: true
+      httpserver:
+        wiretap: true
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: chatgpt
+          uri: lb://ms-chatgpt
+          predicates:
+            - Path=/chatgpt/**
+        - id: oauth
+          uri: lb://ms-auth
+          predicates:
+            - Path=/oauth/**
+        - id: user
+          uri: lb://ms-usuario
+          predicates:
+            - Path=/user/**
