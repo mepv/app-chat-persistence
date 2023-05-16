@@ -42,7 +42,7 @@ spring:
         - id: oauth
           uri: lb://ms-auth
           predicates:
-            - Path=/oauth/**
+            - Path=/oauth2/**
         - id: user
           uri: lb://ms-usuario
           predicates:

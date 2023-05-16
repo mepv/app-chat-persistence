@@ -22,8 +22,9 @@ public class SecurityConfiguration {
     SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http.csrf().disable()
                 .authorizeExchange((authorize) -> authorize
-                        .pathMatchers("/oauth/**").permitAll()
+                        .pathMatchers("/oauth2/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/chatgpt/**").permitAll()
+                        .pathMatchers("/ms-auth/**").permitAll()
                         .pathMatchers(HttpMethod.GET, "/user/**").hasAnyAuthority("ADMIN", "USER")
                         .anyExchange().authenticated()
                 )
