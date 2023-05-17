@@ -20,10 +20,10 @@ public class UserService {
     private void loadsUser() {
         Role roleAdmin = new Role();
         roleAdmin.setId(1);
-        roleAdmin.setName("ADMIN");
+        roleAdmin.setName("SCOPE_ROLE_ADMIN");
         Role roleUser = new Role();
         roleUser.setId(2);
-        roleUser.setName("USER");
+        roleUser.setName("SCOPE_ROLE_USER");
         User userAdmin = new User();
         userAdmin.setId(1);
         userAdmin.setUsername("admin");
