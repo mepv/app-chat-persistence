@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "1d53314f-45ce-48bb-8c83-e0a971f357fb",
+		"name": "Challenge",
+		"description": "Challenge for Accenture",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8030/oauth2/authorize?response_type=code&client_id=web_client&redirect_uri=http://127.0.0.1:80/authorized&scope=ROLE_ADMIN",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8030",
+					"path": [
+						"oauth2",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "web_client"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:80/authorized"
+						},
+						{
+							"key": "scope",
+							"value": "ROLE_ADMIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "myClientSecretValue",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "web_client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "code",
+							"value": "gkqRxotOqsVwM63tJ6fGSr6Pd_flMb0C7GtwGt_3QcSUbR72tCE7F5fw31xLAA7rWZ3f7lC1wgnazMmKUG3-1pNUg7Zl93VAcF3AFcCcW50V_dpayaQLlwnqAMnGf-ec",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:80/authorized",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8030/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8030",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				},
+				"description": "Get token from code"
+			},
+			"response": []
+		},
+		{
+			"name": "AddResponseChatgpt",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIyNTk0YTVhZi1iMDNlLTRhN2ItYThmMC01ZjRjNzI0NmEzZWUiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2ODQ0MTQzOTcsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjg0NDE3OTk3LCJpYXQiOjE2ODQ0MTQzOTd9.oZf1rwRXx4AYlmfm4Aj01dpWw6t15ab7Bq_RSnCLmV2CqDhJd3kKJ3ZTrYpUQAFOCfhnUvBEskcwwghdzrQUzXTULXZM415APgWx3O8ZsVrdiiVJGIQGT6DBOn3qY7-GenT7vkRx7gPA_PSjRaik5KWphEhdCRgyjT7OZ1Kk0TYVYyLEA8GsXZbJZjl6VmYU9Br2F1tpW8P5GTBz-lyEC4cspEFV_53RdkJSpQNJwVk3WlHDGtA0OXikvjLxZrRxWIwOssIz-R-EQuDWok3BQNxwBzoqMN5i9ZkIIh7MaR5s67GH38UN6nZt7qJ2wBER_rdOmKGtS9i1bhep9bmUHw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\":\"Hola\",\n    \"answer\":\"Hola {user}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/chatgpt/admin/chat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"chatgpt",
+						"admin",
+						"chat"
+					]
+				},
+				"description": "Add response to chatgpt"
+			},
+			"response": []
+		},
+		{
+			"name": "Chat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIyNTk0YTVhZi1iMDNlLTRhN2ItYThmMC01ZjRjNzI0NmEzZWUiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2ODQ0MTQzOTcsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjg0NDE3OTk3LCJpYXQiOjE2ODQ0MTQzOTd9.oZf1rwRXx4AYlmfm4Aj01dpWw6t15ab7Bq_RSnCLmV2CqDhJd3kKJ3ZTrYpUQAFOCfhnUvBEskcwwghdzrQUzXTULXZM415APgWx3O8ZsVrdiiVJGIQGT6DBOn3qY7-GenT7vkRx7gPA_PSjRaik5KWphEhdCRgyjT7OZ1Kk0TYVYyLEA8GsXZbJZjl6VmYU9Br2F1tpW8P5GTBz-lyEC4cspEFV_53RdkJSpQNJwVk3WlHDGtA0OXikvjLxZrRxWIwOssIz-R-EQuDWok3BQNxwBzoqMN5i9ZkIIh7MaR5s67GH38UN6nZt7qJ2wBER_rdOmKGtS9i1bhep9bmUHw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\":\"hola\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/chatgpt/chat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"chatgpt",
+						"chat"
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "BillingByUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI5ZGVlNGIwYS05NWYxLTRhZjUtOTYxNi1mMjhhZjc3OTZmNmMiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2ODQzNzI3OTksInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjg0Mzc2Mzk5LCJpYXQiOjE2ODQzNzI3OTl9.lQePnffhhkkVbJqupYbSPWbLhAfDNLY5f24ICzhD9SWEdPM3_HxyXhemHyriHypFc5y9gDe1y4xOmsn786Q3XwbHkEbTGDD-lpKK3_sI-B5FL1gWIjwi97pykLsnAv4kKyawRoryn0YYYWXJQ2zPRXXCnKB-UJ1ye8lTdsRWy9WrTmDRoOcOiZuJLvn7PJSG1g7POY9GXR265tor-wgz8GR84tGx6-iW1b9LwRQn3sgfJ4W7jrAktZ54xNarsKFGkTLJN3tYe0SN6iu9TjB-HPQqR4zRpeqIp08L9_wM9NljvmIvlhWMlJdXWL-ziarxX1Cp-kC3r6Vr6KvZ0SJ6-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/billing?user=admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"billing"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "admin"
+						}
+					]
+				},
+				"description": "Return billing from user name"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBillingValue",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI5ZGVlNGIwYS05NWYxLTRhZjUtOTYxNi1mMjhhZjc3OTZmNmMiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2ODQzNzI3OTksInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjg0Mzc2Mzk5LCJpYXQiOjE2ODQzNzI3OTl9.lQePnffhhkkVbJqupYbSPWbLhAfDNLY5f24ICzhD9SWEdPM3_HxyXhemHyriHypFc5y9gDe1y4xOmsn786Q3XwbHkEbTGDD-lpKK3_sI-B5FL1gWIjwi97pykLsnAv4kKyawRoryn0YYYWXJQ2zPRXXCnKB-UJ1ye8lTdsRWy9WrTmDRoOcOiZuJLvn7PJSG1g7POY9GXR265tor-wgz8GR84tGx6-iW1b9LwRQn3sgfJ4W7jrAktZ54xNarsKFGkTLJN3tYe0SN6iu9TjB-HPQqR4zRpeqIp08L9_wM9NljvmIvlhWMlJdXWL-ziarxX1Cp-kC3r6Vr6KvZ0SJ6-Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\":200.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/billing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"billing"
+					]
+				},
+				"description": "Update billing value "
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllResponse",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJkYzI5ZDlhNS1lNWE4LTQxYzUtOWY1OC1hZWRmOWM1NjhjOGYiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2ODQzNjQ2MDMsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjg0MzY4MjAzLCJpYXQiOjE2ODQzNjQ2MDN9.VkOk2cz3tYCGdNuS5-7t-ZaUa0xbIVjw0CIxsXXl4lY_53On3Iui10tvSb7HJdWfXCgQFdfniU5g2GFZojLT3OX6gBnA7wkXZccmpEMel23XQOXp6LRgoLY7Lz1RP-XY-SBOr_b0h-Tx35TrDnczPJlCT0dDLeiD6LBPmohiIzHB1Ob19mDJjNum06uZvpcGwFQ0-v7MKYu5NmDv5C40bPWBonTJ1BXuiSiajFaP-YMabPdHivUTtCFFylvwlodWY9R7gIP4A4-8471t_v-8TUhHAKRZUkV1MGL9X52kTUJKDqD653Dui8jAL90oW1NwrJWiv74UNDaO3RmEtprUHg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/chatgpt/admin/chat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"chatgpt",
+						"admin",
+						"chat"
+					]
+				},
+				"description": "Return all response load, role admin"
+			},
+			"response": []
+		}
+	]
+}
