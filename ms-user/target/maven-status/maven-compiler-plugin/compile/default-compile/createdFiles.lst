@@ -1,0 +1,5 @@
+com/accenture/user/model/Role.class
+com/accenture/user/Application.class
+com/accenture/user/controller/UserController.class
+com/accenture/user/model/User.class
+com/accenture/user/service/UserService.class

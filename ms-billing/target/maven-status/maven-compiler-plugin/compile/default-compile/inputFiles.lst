@@ -1,0 +1,11 @@
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/util/StringUtil.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/model/Response.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/model/Billing.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/model/BillingResponse.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/service/BaseService.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/controller/BillingController.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/Application.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/model/BillingAddResponse.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/model/BillingValueRequest.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/service/BillingService.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-billing/src/main/java/com/accenture/chatgpt/model/BillingAddRequest.java

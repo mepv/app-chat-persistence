@@ -1,0 +1,9 @@
+com/accenture/auth/service/CustomUserDetailService.class
+com/accenture/auth/model/User.class
+com/accenture/auth/Application.class
+com/accenture/auth/model/Role.class
+com/accenture/auth/config/GlobalSecurityConfig.class
+com/accenture/auth/config/AuthorizationServerConfig.class
+com/accenture/auth/model/CustomUser.class
+com/accenture/auth/client/UserFeignClient.class
+com/accenture/auth/config/SecurityConfig.class

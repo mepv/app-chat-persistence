@@ -1,0 +1,16 @@
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/BillingAddResponse.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/Billing.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/MessageResponse.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/service/DataService.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/util/StringUtil.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/Application.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/Response.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/service/BaseService.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/MessageRequest.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/client/BillingFeignClient.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/Subscriber.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/BillingAddRequest.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/controller/AdminController.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/Data.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/model/BillingResponse.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-chatgpt/src/main/java/com/accenture/chatgpt/controller/ChatController.java

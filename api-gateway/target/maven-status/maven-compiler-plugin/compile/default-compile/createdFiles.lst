@@ -1,0 +1,3 @@
+com/accenture/chatgpt/apigateway/config/SecurityConfiguration.class
+com/accenture/chatgpt/apigateway/config/CustomPreFilter.class
+com/accenture/chatgpt/apigateway/ApiGatewayApplication.class

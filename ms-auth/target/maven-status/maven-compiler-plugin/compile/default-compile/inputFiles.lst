@@ -1,0 +1,9 @@
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/Application.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/config/SecurityConfig.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/config/GlobalSecurityConfig.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/model/CustomUser.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/model/User.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/service/CustomUserDetailService.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/client/UserFeignClient.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/model/Role.java
+/home/rafa/Proyectos/accenture/chatgpt/ms-auth/src/main/java/com/accenture/auth/config/AuthorizationServerConfig.java
