@@ -14,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,7 +29,7 @@ import java.util.stream.Collectors;
 @Service
 public class CustomUserDetailService implements UserDetailsService {
 
-    private Logger logger = LoggerFactory.getLogger(UserService.class);
+    private Logger logger = LoggerFactory.getLogger(UserDetailsService.class);
     @Autowired
     private UserFeignClient userClient;
 
@@ -58,11 +57,6 @@ public class CustomUserDetailService implements UserDetailsService {
         }
         Collection<GrantedAuthority> grantedAuthorities = roles.stream().map(x -> new SimpleGrantedAuthority(x.getName())).collect(Collectors.toList());
         logger.info(String.format("User logged: %s", username));
-//        return new org.springframework.security.core.userdetails.User(
-//                user.getUsername(), user.getPassword(), true,
-//                true, true, true,
-//                AuthorityUtils.createAuthorityList("ADMIN", "write"));
-//    };
         return new CustomUser(user);
     }
 

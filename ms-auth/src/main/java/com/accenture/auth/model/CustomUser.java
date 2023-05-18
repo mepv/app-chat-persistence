@@ -10,7 +10,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  *
@@ -21,6 +20,9 @@ public class CustomUser implements UserDetails {
     User user;
     public CustomUser(User user) {
         this.user=user;
+    }
+    public Integer getId(){
+        return this.user.getId();
     }
 
     @Override

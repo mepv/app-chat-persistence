@@ -14,8 +14,6 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.G
 import java.net.URI;
 import java.util.Collections;
 import java.util.Set;
-import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.route.Route;
 
 @Configuration

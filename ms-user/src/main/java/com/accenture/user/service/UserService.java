@@ -1,0 +1,56 @@
+package com.accenture.user.service;
+
+
+import com.accenture.user.model.Role;
+import com.accenture.user.model.User;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+@Service
+public class UserService {
+
+    private List<User> users = new ArrayList<>();
+
+    @PostConstruct
+    private void loadsUser() {
+        Role roleAdmin = new Role();
+        roleAdmin.setId(1);
+        roleAdmin.setName("SCOPE_ROLE_ADMIN");
+        Role roleUser = new Role();
+        roleUser.setId(2);
+        roleUser.setName("SCOPE_ROLE_USER");
+        User userAdmin = new User();
+        userAdmin.setId(1);
+        userAdmin.setUsername("admin");
+        userAdmin.setPassword("$2a$10$fn5BB.BgRINLPzP/RiD2K.6FtWwLxXqks0qGwwE13VwOZkmhiEKRq");
+        userAdmin.setRole(roleAdmin);
+        User userUser1 = new User();
+        userUser1.setId(2);
+        userUser1.setUsername("user1");
+        userUser1.setPassword("$2a$10$fn5BB.BgRINLPzP/RiD2K.6FtWwLxXqks0qGwwE13VwOZkmhiEKRq");
+        userUser1.setRole(roleUser);
+        User userUser2 = new User();
+        userUser2.setId(3);
+        userUser2.setUsername("user2");
+        userUser2.setPassword("$2a$10$fn5BB.BgRINLPzP/RiD2K.6FtWwLxXqks0qGwwE13VwOZkmhiEKRq");
+        userUser2.setRole(roleUser);
+        this.users.add(userAdmin);
+        this.users.add(userUser1);
+        this.users.add(userUser2);
+    }
+
+    public User getUserByUsername(String username) {
+        List<User> resultUserList = this.users.stream()
+                .filter(user -> user.getUsername().equals(username))
+                .collect(Collectors.toList());
+        if (Objects.isNull(resultUserList) || resultUserList.size() != 1) {
+            return null;
+        }
+        return resultUserList.get(0);
+    }
+}

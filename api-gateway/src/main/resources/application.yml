@@ -39,11 +39,20 @@ spring:
           uri: lb://ms-chatgpt
           predicates:
             - Path=/chatgpt/**
+            - Header=Authorization, Bearer (.*)
         - id: oauth
           uri: lb://ms-auth
           predicates:
             - Path=/oauth2/**
         - id: user
-          uri: lb://ms-usuario
+          uri: lb://ms-user
           predicates:
             - Path=/user/**
+        - id: billing
+          uri: lb://ms-billing
+          predicates:
+            - Path=/billing/**
+        - id: swagger-ui
+          uri: http://localhost:9090
+          predicates:
+            - Path=/swagger-ui/**,/swagger-resources/**,/swagger-ui.html,/v2/api-docs,/webjars/**,/view/**
