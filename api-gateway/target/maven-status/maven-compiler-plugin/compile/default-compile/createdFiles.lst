@@ -1,3 +1,7 @@
+com/accenture/chatgpt/apigateway/model/MessageRequest.class
 com/accenture/chatgpt/apigateway/config/SecurityConfiguration.class
 com/accenture/chatgpt/apigateway/config/CustomPreFilter.class
 com/accenture/chatgpt/apigateway/ApiGatewayApplication.class
+com/accenture/chatgpt/apigateway/client/ChatgptLoadBalancer.class
+com/accenture/chatgpt/apigateway/client/ChatgptFeignClient.class
+com/accenture/chatgpt/apigateway/model/Response.class
