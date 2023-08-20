@@ -1,0 +1,616 @@
+{
+	"info": {
+		"_postman_id": "49d263e6-8fb2-4902-840a-f16b23ee1201",
+		"name": "Accenture-chatgpt-mepv",
+		"description": "Challenge for Accenture",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13208013"
+	},
+	"item": [
+		{
+			"name": "Request Code",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "654321",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8030/oauth2/authorize?response_type=code&client_id=web_client&redirect_uri=http://127.0.0.1:80/authorized&scope=ROLE_ADMIN",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8030",
+					"path": [
+						"oauth2",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "web_client"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:80/authorized"
+						},
+						{
+							"key": "scope",
+							"value": "ROLE_ADMIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "myClientSecretValue",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "web_client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "code",
+							"value": "gkqRxotOqsVwM63tJ6fGSr6Pd_flMb0C7GtwGt_3QcSUbR72tCE7F5fw31xLAA7rWZ3f7lC1wgnazMmKUG3-1pNUg7Zl93VAcF3AFcCcW50V_dpayaQLlwnqAMnGf-ec",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:80/authorized",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8030/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8030",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				},
+				"description": "Get token from code"
+			},
+			"response": []
+		},
+		{
+			"name": "Register as User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"mepv\",\n    \"password\": \"12345\",\n    \"firstName\": \"Mario\",\n    \"lastName\": \"Palacios\",\n    \"phoneNumber\": \"1111-111\",\n    \"gender\": \"MASCULINO\",\n    \"country\": \"Argentina\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/user/username",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"username"
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a user as Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJlNjRhOTFmZC04YjhmLTQzZGUtOGEwMy0yNjM3NDRmMWYyMGYiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlci11c2VyIiwiYXVkIjoid2ViX2NsaWVudCIsIm5iZiI6MTY5MjM5MDQ0OSwic2NvcGUiOlsiUk9MRV9VU0VSIl0sImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo5MDkwXC9vYXV0aCIsImV4cCI6MTY5MjM5NDA0OSwiaWF0IjoxNjkyMzkwNDQ5fQ.jkjls8FakG14O0tr3on5Wia5CgGwNFfcP17n5nFjO0bHZrfY6fFmwSM1CHsY_KgiejPnsL633gdkk-kqzQpzQEOnqIrJUrdH_i4_4sRYQHi_3DDrwxEJ4aLcoslTEaeYn8Jg7giX94QpxwEg-5dSAHGeMsUsMOYtxYwbLOScVLUocbxv09LMUE6bop7P-_BNyTay_0rAhC-TPzNuF8E-6NH7MolMahj-_JiW-o8l0Bl0J869fVXNNUwOipM52NAE0C8b7zBtUQRi8jQWnKZRrI2DxaoGtS04TXzHsh78IWeB2xWYvnlQzP_kyLLjQSxA_lkQ_ZkesdQlMleCgYXP7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"anotheer-admin\",\n    \"password\": \"1234\",\n    \"firstName\": \"Bari\",\n    \"lastName\": \"Arkham\",\n    \"phoneNumber\": \"1111-111\",\n    \"gender\": \"MASCULINO\",\n    \"country\": \"Argentina\",\n    \"role\": {\n        \"name\": \"SCOPE_ROLE_ADMIN\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/user/admin/username",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"admin",
+						"username"
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Users by Role - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIzM2Y0YjY3Mi1hMzdiLTRlMDktYjBlZi0yN2IwODc1YzMxNGIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTI1MjYyMDQsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyNTI5ODA0LCJpYXQiOjE2OTI1MjYyMDR9.JPFMMsEE9KAta-nXwC9frMJXjA3lZtp9uY75VBtk6KVZHx6jSelZHKfENzxVlDJDRJn7__BzBSnX2XeYBoZSJEkXZVvxwsF_a-1EFaudk9HW8v1loELWxbmGMgGMWjYEsNzB_gvDXRNfWeY8nrzF-RVQGOJtM2sPk4gAYPv6VhhA-athT8GmgkVoPeM7xw6RCwDjwRwQYPehhAd3F0OwEu3pnbYXtmABkAgUC2UyxivDPzS_3YdgJZKQC49m126opmDKLErRgJ7I0mUVMFHD_0580NA5WkiHBU_j0VB6CpUvicTCVD3wWwODK--eFyGT4myIqo1l1v642cH2_WkUsA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/user/search/usernames?role=user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"search",
+						"usernames"
+					],
+					"query": [
+						{
+							"key": "role",
+							"value": "user"
+						}
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Users without Debt - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI5ZjQ0NTU5MS0yOTM4LTQzZTMtODJmYy0wOTJiOWMzNzExMzMiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTIzODI4MDUsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyMzg2NDA1LCJpYXQiOjE2OTIzODI4MDV9.UT2YkoQLcgg_anI2F6lZR6ThNZLMUyaEnaeRMZvv_wAqsNwYjwwwitMtaoCQgyv02BrnzrcjIomkjuDjvjsQtlHAOiNqYelmlZEMBRi6Z-A-iTyrMWuk70ly52U7otoNCBI9e7v9HG8yOCtHjPHAPALDIDggkKWydQyJ7oM9Dyhi68ktjF8NpMbS7SqbVcIzZFnSKMMPHkpz0utCASNf9QF_hUKBKVYjva5vhkQ52y211ivK-26D3Aytu6iJr40fIyvhIIY5ejgoxd8KNsGdG0NHOQSlGSIz1uGv_B5eeqSpvIHOLVmQKxH5Ki-1puQsMrozgmekFAv01BGIR-0z9Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/user/admin/users-without-debt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"admin",
+						"users-without-debt"
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Users by Dates - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIwM2FhYmY3Zi1kYmM5LTQ1YjAtYWQxMy1jMTUyMTYwZWMyOWEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTIzODc2MTksInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyMzkxMjE5LCJpYXQiOjE2OTIzODc2MTl9.WxrgupeUUQUa5Kw255_U4Qb0eMFReLbhPYPLAeHtO9ko_a_WflOqSrUJPVLrQMvRae9jrb23DcX1LATZ8Uij-_vbp0HG80PfKbaxnqooiEajJLmWk9tQqnIm7WVQXrWCelnajS_PnzizZQ2r2udbGw1RaPvxlWGOk9iCnXFdzhE8DPSBPJw_5ZeopRwhUsPixY66K_6TwVG-LJAML_V_oIKDe4jTIL7_C7OCXWsJaGp3mPg_7mcZXCKQRViU1I66b0oLLEik-eSd1azxVGb-Hgffywr5c5AcgeTgyssX2OfzxacUccii2S5qUZEOWTKodR6zl5IkZLw0RXw9c2Ml6w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/user/admin/users-by-date?startDate=2023-08-17&endDate=2023-08-19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"admin",
+						"users-by-date"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2023-08-17"
+						},
+						{
+							"key": "endDate",
+							"value": "2023-08-19"
+						}
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Admins Asked Own Questions - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIwM2FhYmY3Zi1kYmM5LTQ1YjAtYWQxMy1jMTUyMTYwZWMyOWEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTIzODc2MTksInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyMzkxMjE5LCJpYXQiOjE2OTIzODc2MTl9.WxrgupeUUQUa5Kw255_U4Qb0eMFReLbhPYPLAeHtO9ko_a_WflOqSrUJPVLrQMvRae9jrb23DcX1LATZ8Uij-_vbp0HG80PfKbaxnqooiEajJLmWk9tQqnIm7WVQXrWCelnajS_PnzizZQ2r2udbGw1RaPvxlWGOk9iCnXFdzhE8DPSBPJw_5ZeopRwhUsPixY66K_6TwVG-LJAML_V_oIKDe4jTIL7_C7OCXWsJaGp3mPg_7mcZXCKQRViU1I66b0oLLEik-eSd1azxVGb-Hgffywr5c5AcgeTgyssX2OfzxacUccii2S5qUZEOWTKodR6zl5IkZLw0RXw9c2Ml6w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/user/admin/asked-own-questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user",
+						"admin",
+						"asked-own-questions"
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Question Data Chatgpt - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIyZWJmOTc4Mi1jY2QzLTRiNjctYjJiMS1kZjJhNjVmYmQ2YjAiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTI1MjU4OTEsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyNTI5NDkxLCJpYXQiOjE2OTI1MjU4OTF9.miBch7OyONRziFaH7zozUz6SAsCdUjRstF6dlR_DMBIbcktYi6C1y2xvK9_k_Jg3MFjxcYKvZDWtFijS5LWOCqbKKJz9p3tecRiV6rt4rOlZnbsMFrJJ1OItOcAm5JU6_IQrMLiP3YZixv0yMPhyA6I0wNN-D4vYWpBJ-qHEUSwc4gPbb8Hp3Oi1sqdbJvkB_U79FzQeBOch0TFLSNHi3jz6sqfZQ-ocRKKOPGYyeOKP8EyPG6pefOXySXjPOu7ferRM6elj4LYfNKM4ZUt7vr5xQZncXCab-2fXxfbPjzQ_WQbJ3vV-cQ5GfdVrr2ITMgqg8ViU5QKQKPuAjJ79hQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\":\"¿Qué día es hoy?\",\n    \"answer\": {\n        \"value\": \"Hoy es viernes\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/chatgpt/admin/chat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"chatgpt",
+						"admin",
+						"chat"
+					]
+				},
+				"description": "Add response to chatgpt"
+			},
+			"response": []
+		},
+		{
+			"name": "Chat Answer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJlNjRhOTFmZC04YjhmLTQzZGUtOGEwMy0yNjM3NDRmMWYyMGYiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlci11c2VyIiwiYXVkIjoid2ViX2NsaWVudCIsIm5iZiI6MTY5MjM5MDQ0OSwic2NvcGUiOlsiUk9MRV9VU0VSIl0sImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo5MDkwXC9vYXV0aCIsImV4cCI6MTY5MjM5NDA0OSwiaWF0IjoxNjkyMzkwNDQ5fQ.jkjls8FakG14O0tr3on5Wia5CgGwNFfcP17n5nFjO0bHZrfY6fFmwSM1CHsY_KgiejPnsL633gdkk-kqzQpzQEOnqIrJUrdH_i4_4sRYQHi_3DDrwxEJ4aLcoslTEaeYn8Jg7giX94QpxwEg-5dSAHGeMsUsMOYtxYwbLOScVLUocbxv09LMUE6bop7P-_BNyTay_0rAhC-TPzNuF8E-6NH7MolMahj-_JiW-o8l0Bl0J869fVXNNUwOipM52NAE0C8b7zBtUQRi8jQWnKZRrI2DxaoGtS04TXzHsh78IWeB2xWYvnlQzP_kyLLjQSxA_lkQ_ZkesdQlMleCgYXP7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\":\"¿Dónde queda Bariloche?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/chatgpt/chat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"chatgpt",
+						"chat"
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Question Time Asked - Admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJlNjRhOTFmZC04YjhmLTQzZGUtOGEwMy0yNjM3NDRmMWYyMGYiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlci11c2VyIiwiYXVkIjoid2ViX2NsaWVudCIsIm5iZiI6MTY5MjM5MDQ0OSwic2NvcGUiOlsiUk9MRV9VU0VSIl0sImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo5MDkwXC9vYXV0aCIsImV4cCI6MTY5MjM5NDA0OSwiaWF0IjoxNjkyMzkwNDQ5fQ.jkjls8FakG14O0tr3on5Wia5CgGwNFfcP17n5nFjO0bHZrfY6fFmwSM1CHsY_KgiejPnsL633gdkk-kqzQpzQEOnqIrJUrdH_i4_4sRYQHi_3DDrwxEJ4aLcoslTEaeYn8Jg7giX94QpxwEg-5dSAHGeMsUsMOYtxYwbLOScVLUocbxv09LMUE6bop7P-_BNyTay_0rAhC-TPzNuF8E-6NH7MolMahj-_JiW-o8l0Bl0J869fVXNNUwOipM52NAE0C8b7zBtUQRi8jQWnKZRrI2DxaoGtS04TXzHsh78IWeB2xWYvnlQzP_kyLLjQSxA_lkQ_ZkesdQlMleCgYXP7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\": \"¿Cuál es la capital de Argentina?\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/chatgpt/admin/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"chatgpt",
+						"admin",
+						"data"
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Questions Not Asked - Admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIwM2FhYmY3Zi1kYmM5LTQ1YjAtYWQxMy1jMTUyMTYwZWMyOWEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTIzODc2MTksInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyMzkxMjE5LCJpYXQiOjE2OTIzODc2MTl9.WxrgupeUUQUa5Kw255_U4Qb0eMFReLbhPYPLAeHtO9ko_a_WflOqSrUJPVLrQMvRae9jrb23DcX1LATZ8Uij-_vbp0HG80PfKbaxnqooiEajJLmWk9tQqnIm7WVQXrWCelnajS_PnzizZQ2r2udbGw1RaPvxlWGOk9iCnXFdzhE8DPSBPJw_5ZeopRwhUsPixY66K_6TwVG-LJAML_V_oIKDe4jTIL7_C7OCXWsJaGp3mPg_7mcZXCKQRViU1I66b0oLLEik-eSd1azxVGb-Hgffywr5c5AcgeTgyssX2OfzxacUccii2S5qUZEOWTKodR6zl5IkZLw0RXw9c2Ml6w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\": \"quien gano\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/chatgpt/admin/data-not-asked",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"chatgpt",
+						"admin",
+						"data-not-asked"
+					]
+				},
+				"description": "Chat with chatgpt, role user or admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Billing By User - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIwM2FhYmY3Zi1kYmM5LTQ1YjAtYWQxMy1jMTUyMTYwZWMyOWEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTIzODc2MTksInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyMzkxMjE5LCJpYXQiOjE2OTIzODc2MTl9.WxrgupeUUQUa5Kw255_U4Qb0eMFReLbhPYPLAeHtO9ko_a_WflOqSrUJPVLrQMvRae9jrb23DcX1LATZ8Uij-_vbp0HG80PfKbaxnqooiEajJLmWk9tQqnIm7WVQXrWCelnajS_PnzizZQ2r2udbGw1RaPvxlWGOk9iCnXFdzhE8DPSBPJw_5ZeopRwhUsPixY66K_6TwVG-LJAML_V_oIKDe4jTIL7_C7OCXWsJaGp3mPg_7mcZXCKQRViU1I66b0oLLEik-eSd1azxVGb-Hgffywr5c5AcgeTgyssX2OfzxacUccii2S5qUZEOWTKodR6zl5IkZLw0RXw9c2Ml6w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/billing?user=admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"billing"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "admin"
+						}
+					]
+				},
+				"description": "Return billing from user name"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBillingValue - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIwYzBkYmVmMy1kYTYzLTQzMGQtYjJlYy00ZTg0OTIxNWQ0MTkiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTIxOTMyMTIsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyMTk2ODEyLCJpYXQiOjE2OTIxOTMyMTJ9.lPjWEBzxvLyIIRGAj7a_jNMesnXgBR0Fjdzri98uTnIh539ewa-y6-e5ZH0Vvsv-yCkMyXLbPRDHKgHMVvibCepqaFx1tsl_QZr6SbRAgXy6H48LOsR1WT8c3p4ocBMADayeVvI7ake56XXmUMg25LrRWLNPlwZ6M918SZ9ZE5jlbvo_nBwLKCnSFb7CJdNbFRvmnt5YJqhXsEeo6S_4RDAUO1BqqtpDpYq7l14VHBNXe0Bess15Za0XPRStaOrdcq_B5DsC6O-FTtt9z4sRgP37vP4Xf30TVC_xolWetOi0w9ilTMzX5O14Bg100K5pJ2D7JpGEpNRskV6KPMZ-mQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\":200.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/billing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"billing"
+					]
+				},
+				"description": "Update billing value "
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllResponse - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIzM2Y0YjY3Mi1hMzdiLTRlMDktYjBlZi0yN2IwODc1YzMxNGIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTI1MjY1MjcsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo5MDkwXC9vYXV0aCIsImV4cCI6MTY5MjUzMDEyNywiaWF0IjoxNjkyNTI2NTI3fQ.erTOQokaL5AbBwBEHh0IrmAqPFCi4tJUojgOaaPNFuE2aUU19iIWo53slayYjOlcZ1vc_ROA2atnJdtYjtFKumMVf24KkGUii1x2olbDeg2jN9mb2ik8LTarWDMaWd4ZNkeYXjX8wGkQp8woS3nurY8NP9-P0UDGcjqd4G6V7nsM31VarNEgarxnJkx3QX5ieb0vKzJHp2zDFchMl-3tzDYC3MdFszK-BWNlwhRzHPUJQ1F6J2sBv_-sPOc5l62B7gmNwaBNAKr9QvMS71-yxpxaRU3doItV9f6sJl8dKbWa-GFo8c4QFq0QRe-Vx8Uh1LTO1R8HckDiVU7fBWyVTA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/chatgpt/admin/chat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"chatgpt",
+						"admin",
+						"chat"
+					]
+				},
+				"description": "Return all response load, role admin"
+			},
+			"response": []
+		}
+	]
+}

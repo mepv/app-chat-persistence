@@ -12,7 +12,6 @@ import com.accenture.auth.model.Role;
 import com.accenture.auth.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +19,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -29,35 +31,30 @@ import java.util.stream.Collectors;
 @Service
 public class CustomUserDetailService implements UserDetailsService {
 
-    private Logger logger = LoggerFactory.getLogger(UserDetailsService.class);
-    @Autowired
-    private UserFeignClient userClient;
+    private final Logger logger = LoggerFactory.getLogger(CustomUserDetailService.class);
+    private final UserFeignClient userClient;
 
-
-    public CustomUserDetailService() {
+    public CustomUserDetailService(UserFeignClient userClient) {
+        this.userClient = userClient;
     }
 
     /**
-     * Load by user name method, it calls to ms user
+     * Load by username method, it calls to ms-user
+     *
      * @param username
      * @return
      * @throws UsernameNotFoundException
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = this.userClient.getByUsername(username);
+        User user = userClient.getByUsername(username);
         if (Objects.isNull(user)) {
-            logger.info(String.format("User logged wrong: %s", username));
+            logger.info("User logged wrong: {}", username);
             throw new UsernameNotFoundException(String.format("User %s not found.", username));
         }
         List<Role> roles = Collections.singletonList(user.getRole());
-        if (Objects.isNull(roles)) {
-            logger.error(String.format("User without roles: %s", username));
-            throw new RuntimeException("User without roles");
-        }
         Collection<GrantedAuthority> grantedAuthorities = roles.stream().map(x -> new SimpleGrantedAuthority(x.getName())).collect(Collectors.toList());
-        logger.info(String.format("User logged: %s", username));
+        logger.info("User logged wrong: {}", username);
         return new CustomUser(user);
     }
-
 }

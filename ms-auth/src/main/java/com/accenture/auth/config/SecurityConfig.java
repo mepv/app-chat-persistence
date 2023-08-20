@@ -1,6 +1,5 @@
 package com.accenture.auth.config;
 
-import com.accenture.auth.model.CustomUser;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,7 +32,7 @@ public class SecurityConfig {
             if (OAuth2TokenType.ACCESS_TOKEN.equals(context.getTokenType())) {
 //                CustomUser customUser = context.getPrincipal();
 //                context.getClaims().claim("id", customUser.getId());
-                Collection<? extends GrantedAuthority> authorities =context.getPrincipal().getAuthorities(); // GrantedAuthority
+                Collection<? extends GrantedAuthority> authorities = context.getPrincipal().getAuthorities(); // GrantedAuthority
             }
         };
     }

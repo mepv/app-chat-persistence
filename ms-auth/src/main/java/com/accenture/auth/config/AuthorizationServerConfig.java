@@ -1,13 +1,9 @@
 package com.accenture.auth.config;
 
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
-import java.time.Duration;
-import java.util.UUID;
-
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.jwk.source.JWKSource;
+import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -29,10 +25,13 @@ import org.springframework.security.oauth2.server.authorization.config.ProviderS
 import org.springframework.security.oauth2.server.authorization.config.TokenSettings;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.nimbusds.jose.jwk.JWKSet;
-import com.nimbusds.jose.jwk.RSAKey;
-import com.nimbusds.jose.jwk.source.JWKSource;
-import com.nimbusds.jose.proc.SecurityContext;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.time.Duration;
+import java.util.UUID;
 
 @Configuration
 public class AuthorizationServerConfig {
@@ -61,7 +60,6 @@ public class AuthorizationServerConfig {
         return new InMemoryRegisteredClientRepository(registeredClient);
     }
 
-
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -70,14 +68,12 @@ public class AuthorizationServerConfig {
         return http.formLogin(Customizer.withDefaults()).build();
     }
 
-
     @Bean
     public ProviderSettings providerSettings() {
         return ProviderSettings.builder()
                 .issuer("http://localhost:9090/oauth")
                 .build();
     }
-
 
     @Bean
     public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {
@@ -109,12 +105,12 @@ public class AuthorizationServerConfig {
 
         return keyPairGenerator.generateKeyPair();
     }
-    @Bean()
+
+    @Bean
     public PasswordEncoder getPasswordEncoder() {
-        DelegatingPasswordEncoder delPasswordEncoder=  (DelegatingPasswordEncoder) PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        BCryptPasswordEncoder bcryptPasswordEncoder =new BCryptPasswordEncoder();
+        DelegatingPasswordEncoder delPasswordEncoder = (DelegatingPasswordEncoder) PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder();
         delPasswordEncoder.setDefaultPasswordEncoderForMatches(bcryptPasswordEncoder);
         return delPasswordEncoder;
     }
-
 }

@@ -1,7 +1,7 @@
-/home/rafa/Proyectos/accenture/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/client/ChatgptLoadBalancer.java
-/home/rafa/Proyectos/accenture/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/model/Response.java
-/home/rafa/Proyectos/accenture/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/client/ChatgptFeignClient.java
-/home/rafa/Proyectos/accenture/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/model/MessageRequest.java
-/home/rafa/Proyectos/accenture/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/ApiGatewayApplication.java
-/home/rafa/Proyectos/accenture/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/config/SecurityConfiguration.java
-/home/rafa/Proyectos/accenture/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/config/CustomPreFilter.java
+/Users/mariopalacios/IdeaProjects/accenture/rafael/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/client/ChatgptFeignClient.java
+/Users/mariopalacios/IdeaProjects/accenture/rafael/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/model/MessageRequest.java
+/Users/mariopalacios/IdeaProjects/accenture/rafael/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/config/SecurityConfiguration.java
+/Users/mariopalacios/IdeaProjects/accenture/rafael/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/client/ChatgptLoadBalancer.java
+/Users/mariopalacios/IdeaProjects/accenture/rafael/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/model/Response.java
+/Users/mariopalacios/IdeaProjects/accenture/rafael/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/config/CustomPreFilter.java
+/Users/mariopalacios/IdeaProjects/accenture/rafael/chatgpt/api-gateway/src/main/java/com/accenture/chatgpt/apigateway/ApiGatewayApplication.java

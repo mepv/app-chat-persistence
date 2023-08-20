@@ -12,16 +12,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 /**
- *
  * @author rafa22
  */
 public class CustomUser implements UserDetails {
 
-    User user;
+    private final User user;
+
     public CustomUser(User user) {
-        this.user=user;
+        this.user = user;
     }
-    public Integer getId(){
+
+    public Integer getId() {
         return this.user.getId();
     }
 
@@ -59,29 +60,4 @@ public class CustomUser implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-//    private Integer id;
-//    private String username;
-//
-//    public CustomUser(String username, String password, Collection<? extends GrantedAuthority> authorities, Integer id) {
-//        super(username, password, authorities);
-//        this.id = id;
-//        this.username = username;
-//    }
-//
-//    public Integer getId() {
-//        return id;
-//    }
-//
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
-//
-//    @Override
-//    public String getUsername() {
-//        return username;
-//    }
-//
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
 }

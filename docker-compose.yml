@@ -19,7 +19,19 @@ services:
     depends_on: 
       - eureka-server
     networks:
-      - backend  
+      - backend
+  mysql-db:
+    image: mysql:8.1.0
+    container_name: mysql-db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: chatgpt_persistence
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - backend
   ms-user:
     container_name: ms-user
     build:
@@ -28,8 +40,12 @@ services:
     - 8020:8020
     environment:
     - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
+    - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/chatgpt_persistence
+    - SPRING_DATASOURCE_USERNAME=root
+    - SPRING_DATASOURCE_PASSWORD=password
     depends_on: 
       - eureka-server
+      - mysql-db
     networks:
       - backend  
   ms-auth:
@@ -40,7 +56,7 @@ services:
     - 8030:8030
     environment:
     - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
-    depends_on: 
+    depends_on:
       - eureka-server
     networks:
       - backend  
@@ -52,8 +68,12 @@ services:
     - 8010:8010
     environment:
     - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
-    depends_on: 
+    - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/chatgpt_persistence
+    - SPRING_DATASOURCE_USERNAME=root
+    - SPRING_DATASOURCE_PASSWORD=password
+    depends_on:
       - eureka-server
+      - mysql-db
     networks:
       - backend  
   ms-billing:
@@ -64,9 +84,16 @@ services:
     - 8050:8050
     environment:
     - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
-    depends_on: 
+    - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/chatgpt_persistence
+    - SPRING_DATASOURCE_USERNAME=root
+    - SPRING_DATASOURCE_PASSWORD=password
+    depends_on:
       - eureka-server
+      - mysql-db
     networks:
       - backend  
 networks:
   backend:
+
+volumes:
+  mysql-data:

@@ -1,6 +1,9 @@
 package com.accenture.chatgpt.util;
 
 public class StringUtil {
+
+    private StringUtil() {}
+
     /**
      * Replace string
      *
@@ -9,7 +12,6 @@ public class StringUtil {
      * @return
      */
     public static String replaceText(String str, String value) {
-//        String answer = str.substring(str.indexOf("{")+1, str.indexOf("}"));
-        return str.replaceAll("\\{[^}]+\\}", value);
+        return str.replaceAll("\\{[^}]}", value);
     }
 }
