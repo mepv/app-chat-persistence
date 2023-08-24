@@ -135,20 +135,7 @@ public class UserService {
                         UserDataDTO::getUser,
                         userDataDTO -> new HashSet<>(userDataDTO.getQuestions())));
 
-        Map<String, Set<String>> questionsAsked = new HashMap<>();
-        Set<String> userDataMapQuestions;
-        Set<String> userBillingDataMapQuestions;
-
-        for (String keyUserDataMap : userDataMap.keySet()) {
-            for (String keyUserBillingDataMap : userBillingDataMap.keySet()) {
-                if (keyUserDataMap.equals(keyUserBillingDataMap)) {
-                    userDataMapQuestions = userDataMap.get(keyUserDataMap);
-                    userBillingDataMapQuestions = userBillingDataMap.get(keyUserBillingDataMap);
-                    userDataMapQuestions.retainAll(userBillingDataMapQuestions);
-                    questionsAsked.put(keyUserDataMap, userDataMapQuestions);
-                }
-            }
-        }
+        Map<String, Set<String>> questionsAsked = getQuestionsAsked(userDataMap, userBillingDataMap);
 
         List<String> clientUsers = new ArrayList<>(userDataMap.keySet());
         List<User> users = userRepository.findAllByUsernameIn(clientUsers);
@@ -167,6 +154,24 @@ public class UserService {
                     return new AdminUserDTO(user.getFirstName(), user.getLastName(), user.getPhoneNumber(), questions);
                 })
                 .collect(Collectors.toList());
+    }
+
+    private Map<String, Set<String>> getQuestionsAsked(Map<String, Set<String>> userDataMap, Map<String, Set<String>> userBillingDataMap) {
+        Map<String, Set<String>> questionsAsked = new HashMap<>();
+        Set<String> userDataMapQuestions;
+        Set<String> userBillingDataMapQuestions;
+
+        for (Map.Entry<String, Set<String>> keyUserDataMap : userDataMap.entrySet()) {
+            for (Map.Entry<String, Set<String>> keyUserBillingDataMap : userBillingDataMap.entrySet()) {
+                if (keyUserDataMap.getKey().equals(keyUserBillingDataMap.getKey())) {
+                    userDataMapQuestions = keyUserDataMap.getValue();
+                    userBillingDataMapQuestions = keyUserBillingDataMap.getValue();
+                    userDataMapQuestions.retainAll(userBillingDataMapQuestions);
+                    questionsAsked.put(keyUserDataMap.getKey(), userDataMapQuestions);
+                }
+            }
+        }
+        return questionsAsked;
     }
 
     @Transactional(readOnly = true)
@@ -195,11 +200,11 @@ public class UserService {
         String uuid;
         LocalDateTime date;
         List<UserDataDateDTO> usersDate = new ArrayList<>();
-        for (String user : userBillingDataMap.keySet()) {
+        for (Map.Entry<String, Set<String>> user : userBillingDataMap.entrySet()) {
             UserDataDateDTO userDataDateDTO = new UserDataDateDTO();
             List<QuestionDateDTO> questionsDateDTO = new ArrayList<>();
-            userDataDateDTO.setUsername(user);
-            for (String question : userBillingDataMap.get(user)) {
+            userDataDateDTO.setUsername(user.getKey());
+            for (String question : user.getValue()) {
                 QuestionDateDTO dto = new QuestionDateDTO();
                 String[] questionsValues = question.split("/");
                 uuid = questionsValues[0];

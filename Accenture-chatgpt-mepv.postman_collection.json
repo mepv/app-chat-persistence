@@ -163,7 +163,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"anotheer-admin\",\n    \"password\": \"1234\",\n    \"firstName\": \"Bari\",\n    \"lastName\": \"Arkham\",\n    \"phoneNumber\": \"1111-111\",\n    \"gender\": \"MASCULINO\",\n    \"country\": \"Argentina\",\n    \"role\": {\n        \"name\": \"SCOPE_ROLE_ADMIN\"\n    }\n}",
+					"raw": "{\n    \"username\": \"another-admin\",\n    \"password\": \"1234\",\n    \"firstName\": \"another\",\n    \"lastName\": \"admin\",\n    \"phoneNumber\": \"1111-111\",\n    \"gender\": \"MASCULINO\",\n    \"country\": \"Argentina\",\n    \"role\": {\n        \"name\": \"SCOPE_ROLE_ADMIN\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -307,7 +307,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJraWQiOiIwM2FhYmY3Zi1kYmM5LTQ1YjAtYWQxMy1jMTUyMTYwZWMyOWEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTIzODc2MTksInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyMzkxMjE5LCJpYXQiOjE2OTIzODc2MTl9.WxrgupeUUQUa5Kw255_U4Qb0eMFReLbhPYPLAeHtO9ko_a_WflOqSrUJPVLrQMvRae9jrb23DcX1LATZ8Uij-_vbp0HG80PfKbaxnqooiEajJLmWk9tQqnIm7WVQXrWCelnajS_PnzizZQ2r2udbGw1RaPvxlWGOk9iCnXFdzhE8DPSBPJw_5ZeopRwhUsPixY66K_6TwVG-LJAML_V_oIKDe4jTIL7_C7OCXWsJaGp3mPg_7mcZXCKQRViU1I66b0oLLEik-eSd1azxVGb-Hgffywr5c5AcgeTgyssX2OfzxacUccii2S5qUZEOWTKodR6zl5IkZLw0RXw9c2Ml6w",
+							"value": "eyJraWQiOiJlZTRhMGM3MS02Y2U4LTQ1YjMtOGU1NS03MjA5ZGY5NWZkZTUiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTI4MzM3MjEsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyODM3MzIxLCJpYXQiOjE2OTI4MzM3MjF9.Y3iCcNMybJL4BiwYtnqm2oceUixeQZncWAlfnXegumfuXKLmU0oTdbS_jV2mdbcmSyForAKBKIHHhi27JpXyydN5Pu1oFge1-Ibi5VNXPa7vF2WCIMot6-rqx_vdutiJw-XBWi95qELHD0X86TO7LEa-36x6HA1slodE5QKrrkCdNlRPQtRuvDBcDVhMsGb3mgv4qP0C95PunYTXm2JqFwbER5hfRVECdzAgzM4kjLvR6eV2ARYMwoX5lqsClQKe8MhQyjcT1ClNks4_6EzxcpIgMjh6g5iZeJtq03o9wyGnXdTxn4VJ8Jp_5Oml5WugzlZ8TNPlY6Tbi3y2ryPcig",
 							"type": "string"
 						}
 					]
@@ -426,7 +426,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJraWQiOiJlNjRhOTFmZC04YjhmLTQzZGUtOGEwMy0yNjM3NDRmMWYyMGYiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzdXBlci11c2VyIiwiYXVkIjoid2ViX2NsaWVudCIsIm5iZiI6MTY5MjM5MDQ0OSwic2NvcGUiOlsiUk9MRV9VU0VSIl0sImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo5MDkwXC9vYXV0aCIsImV4cCI6MTY5MjM5NDA0OSwiaWF0IjoxNjkyMzkwNDQ5fQ.jkjls8FakG14O0tr3on5Wia5CgGwNFfcP17n5nFjO0bHZrfY6fFmwSM1CHsY_KgiejPnsL633gdkk-kqzQpzQEOnqIrJUrdH_i4_4sRYQHi_3DDrwxEJ4aLcoslTEaeYn8Jg7giX94QpxwEg-5dSAHGeMsUsMOYtxYwbLOScVLUocbxv09LMUE6bop7P-_BNyTay_0rAhC-TPzNuF8E-6NH7MolMahj-_JiW-o8l0Bl0J869fVXNNUwOipM52NAE0C8b7zBtUQRi8jQWnKZRrI2DxaoGtS04TXzHsh78IWeB2xWYvnlQzP_kyLLjQSxA_lkQ_ZkesdQlMleCgYXP7w",
+							"value": "eyJraWQiOiJlZTRhMGM3MS02Y2U4LTQ1YjMtOGU1NS03MjA5ZGY5NWZkZTUiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTI4MzM3MjEsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyODM3MzIxLCJpYXQiOjE2OTI4MzM3MjF9.Y3iCcNMybJL4BiwYtnqm2oceUixeQZncWAlfnXegumfuXKLmU0oTdbS_jV2mdbcmSyForAKBKIHHhi27JpXyydN5Pu1oFge1-Ibi5VNXPa7vF2WCIMot6-rqx_vdutiJw-XBWi95qELHD0X86TO7LEa-36x6HA1slodE5QKrrkCdNlRPQtRuvDBcDVhMsGb3mgv4qP0C95PunYTXm2JqFwbER5hfRVECdzAgzM4kjLvR6eV2ARYMwoX5lqsClQKe8MhQyjcT1ClNks4_6EzxcpIgMjh6g5iZeJtq03o9wyGnXdTxn4VJ8Jp_5Oml5WugzlZ8TNPlY6Tbi3y2ryPcig",
 							"type": "string"
 						}
 					]
@@ -462,16 +462,13 @@
 		},
 		{
 			"name": "Retrieve Questions Not Asked - Admin",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJraWQiOiIwM2FhYmY3Zi1kYmM5LTQ1YjAtYWQxMy1jMTUyMTYwZWMyOWEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTIzODc2MTksInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyMzkxMjE5LCJpYXQiOjE2OTIzODc2MTl9.WxrgupeUUQUa5Kw255_U4Qb0eMFReLbhPYPLAeHtO9ko_a_WflOqSrUJPVLrQMvRae9jrb23DcX1LATZ8Uij-_vbp0HG80PfKbaxnqooiEajJLmWk9tQqnIm7WVQXrWCelnajS_PnzizZQ2r2udbGw1RaPvxlWGOk9iCnXFdzhE8DPSBPJw_5ZeopRwhUsPixY66K_6TwVG-LJAML_V_oIKDe4jTIL7_C7OCXWsJaGp3mPg_7mcZXCKQRViU1I66b0oLLEik-eSd1azxVGb-Hgffywr5c5AcgeTgyssX2OfzxacUccii2S5qUZEOWTKodR6zl5IkZLw0RXw9c2Ml6w",
+							"value": "eyJraWQiOiI3NWY2OWIzOC1hMmM1LTRlYjQtOTkwYS0yNmI2NzNiNzY1ZWEiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6IndlYl9jbGllbnQiLCJuYmYiOjE2OTI4NjY2OTMsInNjb3BlIjpbIlJPTEVfQURNSU4iXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjkwOTBcL29hdXRoIiwiZXhwIjoxNjkyODcwMjkzLCJpYXQiOjE2OTI4NjY2OTN9.A35s5Y7oK714glvajYI0Qr-MWLN8uKC6Yxn5FU0lG3i8yft0JX2kFYkL8L0RHgDEvE_YI2-mJ1qmUKf7zdEmaDqxYe-Xprx4qWa_HDcoP2diesYLOGDodzLXOcV0lR0Mrp3CiEUUT4a8ZE6AKyzh7egnkMezkVilDBGCXR9owiEfrB15WRdtl0lOEZeOeFzheYkOYICenOyHOHHEzhlg6yUoS6qDdeGSMO0sDZMpoWwWqH8MOwi-nOFhLSE-sYWifUzSGOwzPjrJfAEyEEiJVGRFnmEuIk8HKCKcsB2QlMS8JNZa-27o0awNBFn2m5iHmyRf6hEdp42ARNMKeRFZJg",
 							"type": "string"
 						}
 					]
@@ -484,10 +481,6 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"question\": \"quien gano\"\n}"
-				},
 				"url": {
 					"raw": "http://localhost:9090/chatgpt/admin/data-not-asked",
 					"protocol": "http",
